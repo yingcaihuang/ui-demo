@@ -1,14 +1,13 @@
-import React, { useRef, useEffect } from 'react';
-import { StyleSheet, View, Text, ScrollView, Platform } from 'react-native';
-import LottieView from 'lottie-react-native';
-import { BlurView } from 'expo-blur';
 import { Stack } from 'expo-router';
+import LottieView from 'lottie-react-native';
+import React, { useEffect, useRef } from 'react';
+import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 
 const RemoteLottieUrl = 'https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/gatin/data.json';
 
@@ -51,6 +50,28 @@ export default function LottieScreen() {
             </View>
             <ThemedText style={styles.description}>
                 Loading animation directly from a remote JSON file.
+            </ThemedText>
+        </View>
+
+        <View style={[styles.card, { backgroundColor: colorScheme === 'dark' ? '#1c1c1e' : '#fff' }]}>
+            <View style={styles.cardHeader}>
+                <IconSymbol name="square.and.arrow.down.fill" size={24} color={theme.tint} />
+                <ThemedText type="subtitle">Local .lottie File</ThemedText>
+            </View>
+            <View style={styles.lottieContainer}>
+                <LottieView
+                    autoPlay
+                    loop
+                    style={{
+                        width: 200,
+                        height: 200,
+                    }}
+                    // @ts-ignore
+                    source={require('../../assets/animations/lottie_demo.lottie')}
+                />
+            </View>
+             <ThemedText style={styles.description}>
+                Loading a downloaded .lottie file from assets.
             </ThemedText>
         </View>
 
