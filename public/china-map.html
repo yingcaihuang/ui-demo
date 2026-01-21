@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国地图</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/china-map/dist/china.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        #container {
+            width: 100%;
+            height: 100vh;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <script>
+        // 省份数据
+        const provinceData = [
+            { name: '北京', value: Math.floor(Math.random() * 2000 + 1500) },
+            { name: '上海', value: Math.floor(Math.random() * 2000 + 2000) },
+            { name: '江苏', value: Math.floor(Math.random() * 8000 + 8000) },
+            { name: '浙江', value: Math.floor(Math.random() * 5000 + 5000) },
+            { name: '山东', value: Math.floor(Math.random() * 10000 + 9500) },
+            { name: '广东', value: Math.floor(Math.random() * 11000 + 11000) },
+            { name: '四川', value: Math.floor(Math.random() * 8000 + 7500) },
+            { name: '河南', value: Math.floor(Math.random() * 9000 + 9000) },
+            { name: '湖北', value: Math.floor(Math.random() * 5500 + 5500) },
+            { name: '湖南', value: Math.floor(Math.random() * 6500 + 6500) },
+            { name: '安徽', value: Math.floor(Math.random() * 6500 + 6500) },
+            { name: '河北', value: Math.floor(Math.random() * 7000 + 7000) },
+            { name: '陕西', value: Math.floor(Math.random() * 3700 + 3700) },
+            { name: '山西', value: Math.floor(Math.random() * 3400 + 3400) },
+            { name: '福建', value: Math.floor(Math.random() * 4000 + 3900) },
+            { name: '江西', value: Math.floor(Math.random() * 4600 + 4600) },
+            { name: '云南', value: Math.floor(Math.random() * 4500 + 4500) },
+            { name: '贵州', value: Math.floor(Math.random() * 3700 + 3700) },
+            { name: '广西', value: Math.floor(Math.random() * 4800 + 4800) },
+            { name: '辽宁', value: Math.floor(Math.random() * 4300 + 4300) },
+            { name: '吉林', value: Math.floor(Math.random() * 2700 + 2700) },
+            { name: '黑龙江', value: Math.floor(Math.random() * 3700 + 3700) },
+            { name: '内蒙古', value: Math.floor(Math.random() * 2500 + 2500) },
+            { name: '新疆', value: Math.floor(Math.random() * 2500 + 2500) },
+            { name: '甘肃', value: Math.floor(Math.random() * 2700 + 2700) },
+            { name: '青海', value: Math.floor(Math.random() * 600 + 600) },
+            { name: '宁夏', value: Math.floor(Math.random() * 700 + 700) },
+            { name: '西藏', value: Math.floor(Math.random() * 300 + 300) },
+            { name: '重庆', value: Math.floor(Math.random() * 3100 + 3100) },
+            { name: '海南', value: Math.floor(Math.random() * 900 + 900) },
+            { name: '天津', value: Math.floor(Math.random() * 1500 + 1500) },
+            { name: '台湾', value: Math.floor(Math.random() * 2300 + 2300) },
+        ];
+
+        const chart = echarts.init(document.getElementById('container'));
+
+        const option = {
+            title: {
+                text: '中国各省人口分布数据',
+                subtext: '单位：万人',
+                left: 'center',
+                top: 20,
+                textStyle: {
+                    color: '#333',
+                    fontSize: 18,
+                    fontWeight: 'bold'
+                },
+                subtextStyle: {
+                    color: '#999',
+                    fontSize: 12
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {
+                    if (params.componentSubType === 'map') {
+                        return params.name + ': ' + (params.value || 0) + '万人';
+                    }
+                    return params.name;
+                },
+                backgroundColor: 'rgba(50, 50, 50, 0.7)',
+                borderColor: '#555',
+                textStyle: {
+                    color: '#fff',
+                    fontSize: 12
+                }
+            },
+            visualMap: {
+                min: 0,
+                max: 12000,
+                inRange: {
+                    color: ['#e7f3ff', '#b3d9ff', '#7fb3ff', '#4784ff', '#1e4cd5', '#003da5']
+                },
+                text: ['高', '低'],
+                calculable: true,
+                realtime: true,
+                dimension: null,
+                seriesIndex: 0,
+                left: 'left',
+                bottom: 20,
+                textStyle: {
+                    color: '#666'
+                }
+            },
+            geo: {
+                map: 'china',
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#f3f3f3',
+                        borderColor: '#999'
+                    },
+                    emphasis: {
+                        areaColor: '#e1e1e1'
+                    }
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        color: '#333',
+                        fontSize: 10
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '人口数量',
+                    type: 'map',
+                    geoIndex: 0,
+                    data: provinceData,
+                    itemStyle: {
+                        normal: {
+                            borderColor: '#ccc'
+                        },
+                        emphasis: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10
+                        }
+                    },
+                    label: {
+                        emphasis: {
+                            show: true
+                        }
+                    }
+                },
+                {
+                    name: '散点',
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    data: provinceData.filter((_, i) => i % 3 === 0).map(item => {
+                        // 简化的坐标映射
+                        return [Math.random() * 135 + 75, Math.random() * 60 + 10, item.value];
+                    }),
+                    symbolSize: function (val) {
+                        return Math.max(val[2] / 300, 3);
+                    },
+                    itemStyle: {
+                        color: '#d94e5d',
+                        shadowBlur: 10,
+                        shadowColor: '#d94e5d'
+                    },
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke',
+                        scale: 3,
+                        period: 4
+                    }
+                }
+            ]
+        };
+
+        // 注册中国地图
+        if (typeof china !== 'undefined') {
+            echarts.registerMap('china', china);
+        }
+
+        option && chart.setOption(option);
+
+        // 响应窗口变化
+        window.addEventListener('resize', function() {
+            chart.resize();
+        });
+
+        // 提供给 React Native 的接口
+        window.chartData = {
+            getOption: function() {
+                return option;
+            },
+            setData: function(data) {
+                option.series[0].data = data;
+                chart.setOption(option);
+            }
+        };
+    </script>
+</body>
+</html>

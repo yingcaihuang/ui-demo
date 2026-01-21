@@ -1,50 +1,72 @@
-# Welcome to your Expo app 👋
+# Expo UI Kit & Map Demo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native demonstration app built with **Expo**, featuring advanced UI patterns, interactive data visualization, and high-performance animations.
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+### 1. 🗺️ Interactive China Heatmap
+- **SVG-based Rendering**: High-performance vector map using `react-native-svg`.
+- **Interactive**: Touch handling for individual provinces with visual feedback.
+- **Data Visualization**: Heatmap coloring based on simulated population data.
+- **Details Panel**: Slide-up cards showing detailed statistics for selected regions.
 
+### 2. 🎨 Modern UI Kit
+- **Glassmorphism**: "Liquid Glass" tab bar and card effects using `expo-blur`.
+- **Native Components**:
+    - User Profile Cards with badges.
+    - E-commerce Product ScrollViews.
+    - Settings Lists with toggle switches.
+    - Styled Form Inputs.
+
+### 3. ✨ Advanced Animations
+Powered by **React Native Reanimated 3** and **Gesture Handler**:
+- **3D Flip Cards**: Realistic card flipping with `rotateY` interpolation.
+- **Accordion**: Smooth height transitions for expandable content.
+- **Pulse Ripple**: Infinite radar-like looping animations.
+- **Pan Gestures**: Draggable physics-based elements.
+- **Layout Animations**: Auto-animating lists when adding/removing items.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Expo SDK 52+](https://expo.dev)
+- **Routing**: [Expo Router](https://docs.expo.dev/router/introduction/)
+- **Animation**: [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+- **Graphics**: [React Native SVG](https://github.com/software-mansion/react-native-svg)
+- **Blur**: [Expo Blur](https://docs.expo.dev/versions/latest/sdk/blur-view/)
+- **Data Mocking**: [Faker.js](https://fakerjs.dev/)
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd ui-demo
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Run the app**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## 📂 Project Structure
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+├── app/
+│   ├── (tabs)/          # Main tab navigation
+│   │   ├── ui_demo.tsx  # UI Kit Showcase
+│   │   ├── map.tsx      # SVG Heatmap
+│   │   └── animation.tsx # Animation Gallery
+│   └── _layout.tsx      # Root layout & Theme provider
+├── components/          # Reusable UI components
+├── constants/           # Theme & Map Data (SVG Paths)
+└── hooks/               # Custom hooks (Theme, etc.)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📄 License
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the MIT License.
