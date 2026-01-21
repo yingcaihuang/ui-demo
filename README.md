@@ -1,5 +1,7 @@
 # Expo UI Kit & Map Demo
 
+**English** | [中文](./README_ZH.md)
+
 A modern React Native demonstration app built with **Expo**, featuring advanced UI patterns, interactive data visualization, and high-performance animations.
 
 ## 📱 Features
