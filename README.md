@@ -4,7 +4,18 @@
 
 A modern React Native demonstration app built with **Expo**, featuring advanced UI patterns, interactive data visualization, and high-performance animations.
 
-## 📱 Features
+## � Screenshots
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <img src="public/426bcddb452acc6c938e798e51d732f2.png" width="30%" />
+  <img src="public/45d792be3676f289fd2a175850bee463.png" width="30%" />
+  <img src="public/6fbee040187185c6a393fd9e67ac0c82.png" width="30%" />
+  <img src="public/8e901ff234b4608602050e7b1a846476.png" width="30%" />
+  <img src="public/c89d83190575e424e45fcdc293e01448.png" width="30%" />
+  <img src="public/8f8e5bd87471a758a32128e68784a295.jpg" width="30%" />
+</div>
+
+## �📱 Features
 
 ### 1. 🗺️ Interactive China Heatmap
 - **SVG-based Rendering**: High-performance vector map using `react-native-svg`.
@@ -68,17 +79,6 @@ Powered by **React Native Reanimated 3** and **Gesture Handler**:
 ├── constants/           # Theme & Map Data (SVG Paths)
 └── hooks/               # Custom hooks (Theme, etc.)
 ```
-
-## 📸 Screenshots
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <img src="public/426bcddb452acc6c938e798e51d732f2.png" width="30%" />
-  <img src="public/45d792be3676f289fd2a175850bee463.png" width="30%" />
-  <img src="public/6fbee040187185c6a393fd9e67ac0c82.png" width="30%" />
-  <img src="public/8e901ff234b4608602050e7b1a846476.png" width="30%" />
-  <img src="public/c89d83190575e424e45fcdc293e01448.png" width="30%" />
-  <img src="public/8f8e5bd87471a758a32128e68784a295.jpg" width="30%" />
-</div>
 
 
 
