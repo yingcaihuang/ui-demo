@@ -77,6 +77,7 @@ Powered by **React Native Reanimated 3** and **Gesture Handler**:
   <img src="public/6fbee040187185c6a393fd9e67ac0c82.png" width="30%" />
   <img src="public/8e901ff234b4608602050e7b1a846476.png" width="30%" />
   <img src="public/c89d83190575e424e45fcdc293e01448.png" width="30%" />
+  <img src="public/8f8e5bd87471a758a32128e68784a295.jpg" width="30%" />
 </div>
 
 
